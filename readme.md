@@ -25,7 +25,7 @@ _This may require multiple reboots; be sure to reboot and check the `App Store` 
 
 ## automation
 
-I wrote an [automated script](https://git.caseydelorme.com/cdelorme/osx-high-sierra/master/high-sierra.sh) to quickly process terminal commands:
+I wrote an [automated script](https://git.caseydelorme.com/cdelorme/osx-high-sierra/src/master/high-sierra.sh) to quickly process terminal commands:
 
 	curl -Ls0- "https://git.caseydelorme.com/cdelorme/osx-high-sierra/raw/master/high-sierra.sh" 2> /dev/null | bash
 
