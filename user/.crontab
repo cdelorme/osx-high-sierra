@@ -1,0 +1,4 @@
+MAILTO=""
+@daily /usr/local/bin/brewgrade
+@daily /usr/local/bin/youtube-dl -U
+@hourly /usr/local/bin/wallpaper

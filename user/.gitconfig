@@ -1,0 +1,19 @@
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[help]
+	autocorrect = 1
+[color]
+	ui = true
+[push]
+	default = simple
+[alias]
+	a = add
+	s = status -suall
+	c = commit
+	st = stash -u
+	sa = stash apply
+	l = !git log --graph --pretty=format:'%C(yellow)%h%Creset -%C(bold red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	pp = !git pull && git push
+[credential]
+	helper = osxkeychain

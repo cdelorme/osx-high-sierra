@@ -1,0 +1,7 @@
+#!/bin/bash
+create_symlink() {
+        ln -sf "$1" ~/Pictures/wallpaper/$(shasum -a256 "$1" | awk '{print $1}')
+}
+export -f create_symlink
+mkdir -p ~/Pictures/wallpaper
+find ~/Pictures/wallpaper -mindepth 2 -type f -exec bash -c 'create_symlink "$0"' {} \;

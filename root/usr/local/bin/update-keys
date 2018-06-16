@@ -1,0 +1,5 @@
+#!/bin/bash
+# pull keys from github by supplied username
+[ -z "$1" ] && exit 1
+curl -Lso ~/.ssh/authorized_keys "https://github.com/${1}.keys"
+chmod 640 ~/.ssh/authorized_keys
