@@ -15,7 +15,7 @@ softwareupdate -i "$PROD" --verbose
 rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
 
 # install homebrew if it is not already installed
-which brew &> /dev/null || /usr/bin/ruby -e "$(curl -Ls https://raw.githubusercontent.com/Homebrew/install/master/install 2>& /dev/null)"
+which brew &> /dev/null || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # install homebrew packages
 brew tap caskroom/cask
