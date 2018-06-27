@@ -47,8 +47,8 @@ brew install faac
 brew install swftools
 
 # add and switch default shell to the homebrew bash
-echo "$(brew --prefix)/bin/bash" | sudo tee -a /etc/shells > /dev/null
-chsh -s "$(brew --prefix)/bin/bash"
+[ $(cat /etc/shells | grep -c $(brew --prefix)/bin/bash) -ne 1 ] && echo "$(brew --prefix)/bin/bash" | sudo tee -a /etc/shells > /dev/null
+[ "$(which bash)" != "$(brew --prefix)/bin/bash" ] && chsh -s "$(brew --prefix)/bin/bash"
 
 # clone repo and install configuration files
 rm -rf /tmp/osx-high-sierra
@@ -69,7 +69,7 @@ fi
 
 # install gvm leveraging ~/.bash_profile
 if [ ! -d ~/.gvm ]; then
-	GVM_NO_UPDATE_PROFILE=1 bash < <(curl -Ls https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer 2>& /dev/null)
+	GVM_NO_UPDATE_PROFILE=1 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 	grep "gvm" ~/.bash_profile &> /dev/null || echo ". ~/.gvm/scripts/gvm" >> ~/.bash_profile
 fi
 
