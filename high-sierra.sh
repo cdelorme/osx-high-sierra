@@ -9,7 +9,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 [ ! -s ~/.ssh/id_ed25519 ] && ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519
 
 # headless install of xcode command line tools
-xcode-select -p &> /dev/null || softwareupdate -i "Command Line Tools (macOS High Sierra version 10.13) for Xcode-9.4"
+if ! xcode-select -p &> /dev/null; then
+	touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+	softwareupdate -i -a
+fi
 
 # install homebrew if it is not already installed
 which brew &> /dev/null || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
