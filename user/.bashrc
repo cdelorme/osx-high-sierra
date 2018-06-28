@@ -100,7 +100,7 @@ if [ $sshout -eq 2 ]; then
 		eval $(ssh-agent -a $SSH_AUTH_SOCK 2> /dev/null) &> /dev/null
 	fi
 fi
-if [ -f ~/.ssh/id_rsa ] && [ $(ssh-add -l | grep -c id_rsa); then
+if [ -f ~/.ssh/id_rsa ] && [ $(ssh-add -l | grep -c id_rsa) ]; then
 	ssh-add -A ~/.ssh/id_rsa 2> /dev/null
 	[ $(ssh-add -l | grep -c id_rsa) -eq 0 ] && ssh-add ~/.ssh/id_rsa
 fi
